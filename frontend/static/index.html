@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">FastAPI + JavaScript</p>
+        <h1>Tienda online de productos tech</h1>
+        <p class="hero-copy">
+          Catalogo, carrito, checkout y resumen de pedidos en una sola app.
+        </p>
+      </div>
+
+      <section class="dashboard" id="dashboard">
+        <article>
+          <span>Productos</span>
+          <strong id="products-count">0</strong>
+        </article>
+        <article>
+          <span>Pedidos</span>
+          <strong id="orders-count">0</strong>
+        </article>
+        <article>
+          <span>Ingresos</span>
+          <strong id="revenue-total">0,00 EUR</strong>
+        </article>
+      </section>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="section-title">
+          <h2>Catalogo</h2>
+          <p>Selecciona productos y anadelos al carrito.</p>
+        </div>
+        <div id="products" class="product-grid"></div>
+      </section>
+
+      <aside class="panel side-panel">
+        <div class="section-title">
+          <h2>Carrito</h2>
+          <p id="cart-state">Tu carrito esta vacio.</p>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+
+        <div class="totals">
+          <div>
+            <span>Articulos</span>
+            <strong id="quote-items">0</strong>
+          </div>
+          <div>
+            <span>Total</span>
+            <strong id="quote-total">0,00 EUR</strong>
+          </div>
+        </div>
+
+        <form id="checkout-form" class="checkout-form">
+          <h3>Finalizar compra</h3>
+          <label>
+            Nombre
+            <input id="customer-name" name="customer-name" type="text" required />
+          </label>
+          <label>
+            Email
+            <input id="customer-email" name="customer-email" type="email" required />
+          </label>
+          <label>
+            Direccion
+            <textarea
+              id="shipping-address"
+              name="shipping-address"
+              rows="3"
+              required
+            ></textarea>
+          </label>
+          <button id="checkout-button" type="submit">Crear pedido</button>
+        </form>
+
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </aside>
+    </main>
+
+    <section class="panel orders-panel">
+      <div class="section-title">
+        <h2>Pedidos recientes</h2>
+        <p>Se actualizan despues de cada compra.</p>
+      </div>
+      <div id="orders" class="orders-list"></div>
+    </section>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
