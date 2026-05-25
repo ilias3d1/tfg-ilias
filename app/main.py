@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+from app.api.admin import router as admin_router
 from app.api.routes import build_store_router
 from app.repositories.order_repository import OrderRepository
 from app.repositories.product_repository import ProductRepository
@@ -25,6 +26,7 @@ app = FastAPI(
     version="1.0.0",
 )
 app.include_router(build_store_router(store_service))
+app.include_router(admin_router)
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 
